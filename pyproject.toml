@@ -1,0 +1,11 @@
+[project]
+name = "pdf-app"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "docling>=2.60.1",
+    "opencv-python-headless>=4.12.0.88",
+    "streamlit>=1.51.0",
+]
