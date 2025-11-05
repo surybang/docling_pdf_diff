@@ -130,7 +130,7 @@ if file_a and file_b:
         text_b, squeeze_spaces=opt_spaces, fix_hyphens=opt_hyphens, strip_headers=opt_headers
     )
 
-    # Aperçu (30 premières lignes)
+    # Aperçu
     with st.expander("Aperçu texte (premières lignes)"):
         prev_cols = st.columns(2)
         with prev_cols[0]:
