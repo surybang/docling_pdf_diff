@@ -1,19 +1,8 @@
 # Docling pdf diff
 
-Outil minimaliste pour **comparer deux fichiers PDF côte à côte**, en s'appuyant sur [Docling](https://github.com/DS4SD/docling) pour l'extraction du texte et `difflib` pour la génération du diff.
+Outil minimaliste pour **comparer deux fichiers PDF**, en s'appuyant sur [Docling](https://github.com/DS4SD/docling) pour l'extraction du texte et `difflib` pour la génération du diff.
 
 L'interface Streamlit permet d'uploader deux PDFs, de visualiser les différences ligne par ligne, et d'exporter le résultat en HTML.
-
----
-
-## Fonctionnalités
-
-- **Extraction intelligente** : Docling convertit les PDFs en Markdown structuré (gère les PDFs natifs et scannés)
-- **Normalisation configurable** : compactage des espaces, recollage des mots coupés en fin de ligne, suppression heuristique des en-têtes/pieds de page récurrents
-- **Diff côte à côte** : vue HTML colorée (insertions en vert, suppressions en rouge)
-- **Métriques synthétiques** : nombre de lignes modifiées, insertions, suppressions
-- **Export HTML** : téléchargement du diff complet pour archivage ou partage
-- **UI Streamlit** : interface web légère, sans configuration
 
 ---
 
@@ -29,6 +18,20 @@ cd docling_pdf_diff
 # Installer les dépendances
 uv sync
 ```
+
+> Sur Linux, Docling dépend d'une bibliothèque native pour OpenCV.
+> Si vous obtenez `libGL.so.1: cannot open shared object file`, installez les paquets suivants :
+>
+> ```bash
+> sudo apt-get install libgl1 libgl1-mesa-dri libgl1-amber-dri
+> ```
+>
+> Selon votre distribution, certains paquets peuvent déjà être satisfaits ou non disponibles.
+> Si une installation échoue, utilisez `apt-cache search '^libgl1'` pour trouver le package adapté.
+>
+> ```bash
+> apt-cache search '^libgl1'
+> ```
 
 > **Note :** Docling est une librairie lourde (~plusieurs Go avec ses modèles).
 
@@ -53,9 +56,12 @@ L'application s'ouvre sur `http://localhost:8501`.
 
 ```
 docling_pdf_diff/
-├── streamlit.py       # Interface Streamlit + logique de diff
-├── pyproject.toml     # Dépendances (uv)
-└── uv.lock            # Lockfile uv
+├── docling_pdf_diff/   # Package utilitaire pour l'extraction et le diff
+│   ├── __init__.py
+│   └── core.py
+├── streamlit.py        # Interface Streamlit
+├── pyproject.toml      # Dépendances (uv)
+└── uv.lock             # Lockfile uv
 ```
 
 ---
