@@ -1,4 +1,4 @@
-# Docling pdf diff
+# Docdiff
 
 Outil minimaliste pour **comparer deux fichiers PDF**, en s'appuyant sur [Docling](https://github.com/DS4SD/docling) pour l'extraction du texte et `difflib` pour la génération du diff.
 
@@ -12,7 +12,7 @@ Le projet utilise [uv](https://github.com/astral-sh/uv) comme gestionnaire de pa
 
 ```bash
 # Cloner le repo
-git clone https://github.com/surybang/docling_pdf_diff.git
+git clone https://github.com/surybang/Docdiff.git
 cd docling_pdf_diff
 
 # Installer les dépendances
